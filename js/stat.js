@@ -45,7 +45,7 @@ window.renderStatistics = function (ctx, names, times) {
     currentX += BAR_GAP;
     currentBarHeight = (times[i] * BAR_HEIGHT / maxTime);
     finalYmargin = currentY - BAR_HEIGHT + (BAR_HEIGHT - currentBarHeight);
-    names[i] === BAR_YOU_TEXT ? ctx.fillStyle = BAR_YOU_COLOR : ctx.fillStyle = getRandomBlueColor();
+    ctx.fillStyle = names[i] === BAR_YOU_TEXT ? BAR_YOU_COLOR : getRandomBlueColor();
     ctx.fillRect(currentX, finalYmargin, BAR_WIDTH, currentBarHeight);
     ctx.fillStyle = CLOUD_FONT_COLOR;
     ctx.fillText(names[i], currentX, currentY + GAP);

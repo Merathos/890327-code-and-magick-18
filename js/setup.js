@@ -1,12 +1,12 @@
-'use strict'
+'use strict';
 
-var setup_div = document.querySelector('.setup');
-setup_div.classList.remove('hidden');
+var popUp = document.querySelector('.setup');
+popUp.classList.remove('hidden');
 
 var similarWizard = document.querySelector('.setup-similar');
 similarWizard.classList.remove('hidden');
 var fragment = document.createDocumentFragment();
-var setupSimilarList = document.querySelector('.setup-similar-list')
+var setupSimilarList = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
 var names = ['Иван', 'Хуан', 'Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var surnames = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
@@ -16,11 +16,10 @@ var randomName;
 var randomSurname;
 var randomCoatColor;
 var randomEyesColor;
-var randomWizard;
 var randomWizardList = [];
 
 var getRandomValue = function (arr, randomValue) {
-  var randomValue = arr[Math.floor(Math.random() * arr.length)]
+  randomValue = arr[Math.floor(Math.random() * arr.length)];
   return randomValue;
 }
 
@@ -35,7 +34,7 @@ var getRandomWizard = function () {
   }
   return randomWizardList;
 }
-getRandomWizard()
+getRandomWizard();
 
 var renderWizard = function () {
   for (var i = 0; i < randomWizardList.length; i++) {
@@ -43,7 +42,7 @@ var renderWizard = function () {
     wizardElement.querySelector('.wizard-coat').style.fill = randomWizardList[i].coatColor;
     wizardElement.querySelector('.wizard-eyes').style.fill = randomWizardList[i].eyeColor;
     wizardElement.querySelector('.setup-similar-label').textContent = randomWizardList[i].name;
-    fragment.appendChild(wizardElement)
+    fragment.appendChild(wizardElement);
   }
   return fragment;
 }

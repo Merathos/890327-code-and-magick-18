@@ -21,7 +21,7 @@ var randomWizardList = [];
 var getRandomValue = function (arr, randomValue) {
   randomValue = arr[Math.floor(Math.random() * arr.length)];
   return randomValue;
-}
+};
 
 var getRandomWizard = function () {
   for (var i = 0; i < 4; i++) {
@@ -29,11 +29,11 @@ var getRandomWizard = function () {
       name: getRandomValue(names, randomName) + ' ' + getRandomValue(surnames, randomSurname),
       coatColor: getRandomValue(coatColors, randomCoatColor),
       eyeColor: getRandomValue(eyesColors, randomEyesColor)
-    }
+    };
     randomWizardList.push(randomWizard);
   }
   return randomWizardList;
-}
+};
 getRandomWizard();
 
 var renderWizard = function () {
@@ -45,7 +45,7 @@ var renderWizard = function () {
     fragment.appendChild(wizardElement);
   }
   return fragment;
-}
+};
 
 renderWizard();
 setupSimilarList.appendChild(fragment);

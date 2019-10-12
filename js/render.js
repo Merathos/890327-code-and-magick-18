@@ -2,6 +2,7 @@
 
 (function () {
 
+  var MAX_WIZ = 4;
   var wizardTemplate = document.querySelector('#similar-wizard-template');
   var similar = document.querySelector('.setup-similar');
   var similarList = document.querySelector('.setup-similar-list');
@@ -18,14 +19,17 @@
     return element;
   };
 
-  window.render = function (data) {
-    var takeNumber = data.length > 4 ? 4 : data.length;
+  var appendWiz = function (data) {
     similarList.innerHTML = '';
-    for (var i = 0; i < takeNumber; i++) {
-      similarList.appendChild(renderWizard(data[i]));
-    }
+    data.slice(0, MAX_WIZ).forEach(function (el) {
+      similarList.appendChild(renderWizard(el));
+    });
 
     similar.classList.remove('hidden');
+  };
+
+  window.render = {
+    appendWiz: appendWiz
   };
 
 })();
